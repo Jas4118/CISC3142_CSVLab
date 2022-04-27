@@ -1,0 +1,22 @@
+Total student per prof 
+
+Overall student total in 3130 is: 997
+I03	40
+I07	342
+I17	67
+I18	314
+I19	194
+I27	40
+
+Number of W(ithdrawals) per prof 
+
+I03	1
+I07	19
+I17	5
+I18	56
+I19	10
+I27	6
+
+Spring pass rate for 3130 is -nan%
+Fall pass rate for 3130 is 81.8182%
+Overall pass rate for 3130 is 82.8485%

@@ -9,6 +9,22 @@ using namespace std;
 #include "../headers/testCalcFunc.h"
 #include "testCalcFunc.cpp"
 
+struct student {
+	string id, courseNo, Grade;
+};
+
+struct instructor {
+	string id, courseNo, TermId;
+};
+
+struct term{
+	string id, displayName;
+};
+
+struct course{
+	string id, courseNo, sectionNo, term;
+};
+
 int main() {
 
 	std::ifstream readFile;
@@ -23,15 +39,15 @@ int main() {
 	if ( courseNo == "1115" || courseNo == "3115" || courseNo == "3130"){
 		if(courseNo == "1115"){
 			docNum = "1115";
-			readFile.open("./data/1115.csv");
+			readFile.open("./csvFiles/1115.csv");
 		}
-		else if(courseNo == "3115"){
+		if(courseNo == "3115"){
 			docNum = "3115";
-			readFile.open("./data/3115.csv");
+			readFile.open("./csvFiles/3115.csv");
 		}
-		else if(courseNo == "3130"){
+		if(courseNo == "3130"){
 			docNum = "3130";
-			readFile.open("./data/3130.csv");
+			readFile.open("./csvFiles/3130.csv");
 		}
 	} else {
 		cout << "Entered string is not valid" << endl;
@@ -42,8 +58,10 @@ int main() {
 
 	outputFile << "Number of W(ithdrawals) per prof \n\n";
 	printMap(wPerProf(docNum), outputFile);
+	outputFile << '\n';
+
 	calcSpringPass(docNum, outputFile);
-	//calcFallPass(docNum, outputFile);
+	calcFallPass(docNum, outputFile);
 	calcCoursePass(docNum, outputFile);	
 }
 

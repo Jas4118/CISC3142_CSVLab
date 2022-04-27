@@ -1,0 +1,36 @@
+Total student per prof 
+
+Overall student total in 3115 is: 1280
+I06	69
+I07	35
+I10	139
+I11	62
+I14	82
+I15	171
+I19	140
+I21	173
+I22	35
+I23	101
+I24	35
+I27	138
+I28	100
+
+Number of W(ithdrawals) per prof 
+
+I06	8
+I07	4
+I10	8
+I11	12
+I14	2
+I15	19
+I19	10
+I21	45
+I22	9
+I23	15
+I24	3
+I27	8
+I28	33
+
+Spring pass rate for 3115 is -nan%
+Fall pass rate for 3115 is 74.4639%
+Overall pass rate for 3115 is 79.0625%

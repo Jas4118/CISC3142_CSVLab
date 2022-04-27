@@ -6,9 +6,9 @@
 
 map<string,float> findTotalStuProf(string docNum,std::ofstream& outputFile){
 	string str, professorId;
-	int column = 0, stuTotal = 0, overallStudentTotal = 0, studentPassed = 0;
+	int column = 0, stuTotal = 0, overallStudentTotal=0;
 	ifstream readFile("./csvFiles/" + docNum + ".csv"); // file to read from
-	map<string,float> stuTotalProf; //map containing number of students to each prof
+	map<string,float> stuTotalProf;
 	getline(readFile,str);
 
 	while(readFile.good()){
@@ -30,15 +30,13 @@ map<string,float> findTotalStuProf(string docNum,std::ofstream& outputFile){
 			}
 		}
 		else if(column == 6) {
-                        string grade = line.substr(0,1); //grade is substring of line since line is seperated by comma
-			stuTotal++;
-                        column = 1;
+			string grade = line.substr(0,1); //grade is substring of line since line is seperated by comma
+			column = 1;
 			overallStudentTotal++;
 		}
 		
 	}
 	outputFile << "Overall student total in " <<docNum << " is: " << overallStudentTotal << endl;
-
 	return stuTotalProf;
 }
 
@@ -71,45 +69,39 @@ float calcCoursePass(string docNum,std::ofstream& outputFile){
 
 float calcSpringPass(string docNum,std::ofstream& outputFile){
         string str,termId;
-        bool isSpring=false;
         int column = 0, stuTotal = 0, stuPassed = 0;
-        ifstream readFile("./csvFiles/" +docNum + ".csv");
+        ifstream readFile("./csvFiles/" + docNum + ".csv");
         getline(readFile,str);
-
         while(readFile.good()){
-                string line;
+		bool isSpring = false;
+                string line, termId;
                 getline(readFile, line, ',');
-                column++;
-
-                if(column == 4){
-                        if(line == "T02" || line == "T06" || line == "T10" || line == "T14" || line == "T18" || line == "T21"){
-                                isSpring=true;
-                        }
-
-                }
+		column++;
+		cout << column << " " << line << " " << isSpring << endl;
+		if(column == 4){
+			if(line == "T02" || line == "T06" || line == "T10" || line == "T14" || line == "T18" || line == "T21"){
+				isSpring=true;
+			}
+		}	
 
                 if(column == 6) {
                         string grade = line.substr(0,1); //grade is substring of line since line is seperated by comma
-                        if(isSpring==true){
-                                if(grade != "F" && grade != "W" && grade != "WU" && grade != "WN" && grade != "WD" && grade != "FIN"){
-                                        stuPassed++;
-                                }
-                                stuTotal++;
-                        }
+			if(isSpring==true) {
+                        	if(grade != "F" && grade != "W" && grade != "WU" && grade != "WN" && grade != "WD" && grade != "FIN"){
+                                	stuPassed++;
+                       		}
+				stuTotal++;
+			}
                         column = 1;
-                        isSpring=false;
+			isSpring=false;
                 }
-
         }
-
         float passRateCourse = (float) stuPassed / (float) stuTotal;
-        cout << stuPassed << " passed " << stuTotal << " Total Spring" << endl;
         passRateCourse = passRateCourse*100;
         outputFile <<"Spring pass rate for " << docNum << " is " << passRateCourse <<"%"<<endl;
         return passRateCourse;
 
 }
-
 
 float calcFallPass(string docNum,std::ofstream& outputFile){
         string str,termId;
@@ -124,11 +116,13 @@ float calcFallPass(string docNum,std::ofstream& outputFile){
                 column++;
 
                 if(column == 4){
-                        if(line == "T04" || line == "T08" || line == "T12" || line == "T16" || line == "T20" || line == "T23"){
+			cout << line << endl;
+                        if(line == "T04" || line == "T08" || line == "T12" || line == "T16" || line == "T20" || line == "23"){
                                 isFall=true;
                       	}
 
                 }
+		cout << isFall << " " <<line<< endl;
 
                 if(column == 6) {
                         string grade = line.substr(0,1); //grade is substring of line since line is seperated by comma
@@ -145,7 +139,7 @@ float calcFallPass(string docNum,std::ofstream& outputFile){
         }
 
         float passRateCourse = (float) stuPassed / (float) stuTotal;
-	cout << stuPassed << " passed " << stuTotal << " Total Fall" << endl;
+	cout << stuPassed << " passed " << stuTotal << " Total " << endl;
         passRateCourse = passRateCourse*100;
         outputFile <<"Fall pass rate for " << docNum << " is " << passRateCourse <<"%"<<endl;
         return passRateCourse;
@@ -189,7 +183,7 @@ map<string,float> wPerProf(string docNum){
 }
 void printMap(map<string,float> newMap,std::ofstream& outputFile){
 	for(auto it = newMap.cbegin(); it != newMap.cend(); it++){
-                outputFile << it->first << "\t" << it->second << "\n";
+                outputFile << it->first << " " << it->second << "\n";
 	}
 }
 
