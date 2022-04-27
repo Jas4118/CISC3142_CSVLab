@@ -176,8 +176,7 @@ map<string,float> wPerProf(string docNum){
                 else if(column == 6) {
                         string grade = line.substr(0,1); //grade is substring of line since line is seperated by comma
 			if(grade == "W" || grade == "WU" || grade == "WN" || grade == "WD"){
-				int stuWithdrawal = stuWProf.at(professorId);
-				stuWithdrawal++;
+				int stuWithdrawal = stuWProf.at(professorId)+1;
 				stuWProf.erase(professorId);
 				stuWProf.insert({professorId,stuWithdrawal});
 			}
