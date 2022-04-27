@@ -1,0 +1,38 @@
+Total student per prof 
+
+Overall student total in 1115 is: 2916
+I01 265
+I02 150
+I04 88
+I08 353
+I12 296
+I14 149
+I16 312
+I18 235
+I20 240
+I21 180
+I22 53
+I23 60
+I25 30
+I26 30
+I28 475
+
+Number of W(ithdrawals) per prof 
+
+I01 71
+I02 26
+I04 25
+I08 110
+I12 78
+I14 17
+I16 79
+I18 57
+I20 49
+I21 50
+I22 6
+I23 9
+I25 6
+I26 7
+I28 170
+Spring pass rate for 1115 is 55.1839%
+Pass rate for 1115 is 56.893%
