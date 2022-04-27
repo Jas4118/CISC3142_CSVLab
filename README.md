@@ -35,5 +35,5 @@ Both these functions are similar as well as they calculate the grade of overall 
 The program sets up the reading the file and the output file. This program then prompts the user to enter a course number. This input would be placed in courseNo string variable and then opens a file with the name courseNo + ".txt" to the outputFiles folder. The program then checks if the courseNo is 1115, 3115 or 3130 and opens their respective files to read. If the courseNo is none of the three then the cout will produce a string that says the string isn't valid.
 Afterwards most of the functions appear here with printMap printing the key-value pairs to the outputFile and setting up other output using the calcSpringPass, calcFallPass, and calcCoursePass. All the information is placed into the outputFile with their respective courseNo.
 
-# Lacking
-Currently the program is incomplete due to not containing the percentages of W rate and passing rate so I only have included number of people that have W and passing.
+# Additional features to be added
+Currently the program is incomplete due to not containing the percentages of W rate and passing rate so I only have included number of people that have W and passing. There also isn't any form of printf to create a nicer report but that is to be added later.
